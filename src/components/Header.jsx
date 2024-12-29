@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const Header = ({ inputField, handleInput }) => {
+const Header = ({ inputField, handleInput, lenght }) => {
   return (
     <header className="flex justify-around p-3 bg-purple-700 text-white m-2 rounded-xl items-center mt-6">
       <span className="font-bold text-2xl">iWatched Logo</span>
@@ -10,7 +10,9 @@ const Header = ({ inputField, handleInput }) => {
         onChange={handleInput}
         value={inputField}
       />
-      <span className="font-semibold text-xl">Found x to results</span>
+      <span className="font-semibold text-xl">
+        Found {lenght ? lenght.length : "0"} to results
+      </span>
     </header>
   );
 };
