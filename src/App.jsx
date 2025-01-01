@@ -9,11 +9,16 @@ const APIKEY = "f459ee4b";
 function App() {
   const [input, setInput] = useState("");
   const [searched, setSearched] = useState([]);
-  const [searchClose, setSearchClose] = useState(false);
-  const [watchedClose, setWatchedClose] = useState(false);
+  const [watched, setWatched] = useState([]);
+  const [searchClose, setSearchClose] = useState(true);
+  const [watchedClose, setWatchedClose] = useState(true);
 
   const handleInput = (e) => {
     setInput(e.target.value);
+  };
+
+  const handleAddWatched = (addToWatched) => {
+    setWatched([...watched, addToWatched]);
   };
 
   useEffect(() => {
@@ -42,8 +47,10 @@ function App() {
           data={searched}
           changestatus={() => setSearchClose(!searchClose)}
           status={searchClose}
+          onHandleWatched={handleAddWatched}
         />
         <Watched
+          data={watched}
           changestatus={() => setWatchedClose(!watchedClose)}
           status={watchedClose}
         />
