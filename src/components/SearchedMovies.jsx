@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 const SearchedMovies = ({ movie, onHandleWatched }) => {
   return (
-    <div
-      className="flex bg-slate-900 p-4 rounded-lg hover:bg-slate-800 hover:cursor-pointer"
-      onClick={() => onHandleWatched(movie)}
-    >
+    <div className="flex bg-slate-900 p-4 rounded-lg  ">
       <img
         src={movie.Poster}
         alt="Movie Poster"
@@ -18,6 +15,12 @@ const SearchedMovies = ({ movie, onHandleWatched }) => {
           {movie.Year}
         </h2>
         <p>{movie.Actors}</p>
+        <button
+          className="bg-green-600 p-3 rounded-md text-green-100 text-wrap hover:cursor-pointer hover:bg-green-900 "
+          onClick={() => onHandleWatched(movie)}
+        >
+          Add to Watched Movies
+        </button>
       </div>
     </div>
   );

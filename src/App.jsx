@@ -18,7 +18,14 @@ function App() {
   };
 
   const handleAddWatched = (addToWatched) => {
+    if (watched.find((movie) => movie.imdbID === addToWatched.imdbID)) {
+      return;
+    }
     setWatched([...watched, addToWatched]);
+  };
+
+  const handleDelete = (id) => {
+    setWatched(watched.filter((watched) => watched.imdbID !== id));
   };
 
   useEffect(() => {
@@ -53,6 +60,7 @@ function App() {
           data={watched}
           changestatus={() => setWatchedClose(!watchedClose)}
           status={watchedClose}
+          onDelete={handleDelete}
         />
       </main>
     </div>
